@@ -1,4 +1,4 @@
-# 🧅 DefaultOnionArchitecture
+# DefaultOnionArchitecture
 
 A clean and extensible starter template for ASP.NET Core applications using **Onion Architecture**, **CQRS**, and **MediatR** patterns. This template is designed for scalable enterprise projects with built-in support for validation, caching, authentication, Swagger documentation, and multi-layered separation of concerns.
 
