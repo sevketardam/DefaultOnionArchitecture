@@ -1,0 +1,200 @@
+﻿@{
+	Layout = "_DashboardLayout";
+	ViewData["Title"] = "Meta Tag";
+	ViewData["Page"] = "Meta Tag";
+}
+
+@section Css {
+	<link href="~/css/flag-dropdown.css" rel="stylesheet" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.13.1/font/bootstrap-icons.min.css" integrity="sha512-t7Few9xlddEmgd3oKZQahkNI4dS6l80+eGEzFQiqtyVYdvcSG2D3Iub77R20BdotfRPA9caaRkg1tyaJiPmO0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+	<style>
+		.iq-banner:not(.hide) + .content-inner {
+			margin-top: 0 !important;
+		}
+	</style>
+}
+
+<table id="meta-tag-table" class="table table-striped">
+	<thead>
+		<tr>
+			<th>Sayfa Anahtarları</th>
+			<th>Attribute</th>
+			<th>Attribute Değer</th>
+			<th>İçerik</th>
+			<th>Dil</th>
+			<th>Aktif</th>
+			<th title="Oluşturulma Tarihi">Oluş. Tar.</th>
+			<th></th>
+		</tr>
+	</thead>
+	<tbody>
+	</tbody>
+</table>
+
+
+@section Modals {
+	<div class="modal fade" id="add-meta-tag-modal" data-bs-backdrop="static" data-bs-keyboard="false">
+		<div class="modal-dialog modal-dialog-centered">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title">Meta Tag Ekle</h5>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body">
+					<form id="add-meta-tag-form">
+						<div class="row">
+
+							<div class="col-md-12 mb-3">
+								<div class="form-group">
+									<label>Sayfa Etiketleri
+										<i class="bi bi-exclamation-circle-fill text-primary ms-1"
+										   data-bs-toggle="tooltip"
+										   data-bs-placement="top"
+										   title="Virgülle ayırarak birden fazla sayfa tanımlayabilirsiniz. Değerler URL'nin son parçasına göre eşleşir. Anasayfa için özel anahtar: anasayfa ya da home">
+										</i>
+									</label>
+									<input type="text" name="pageKeys" class="form-control" placeholder="Örnek: anasayfa, hakkimizda, urunler">
+								</div>
+							</div>
+
+							<div class="col-md-12 mb-3">
+								<div class="form-group">
+									<label>Attribute</label>
+									<select name="attributeName" class="form-select">
+										<option disabled selected>Attribute Seçiniz</option>
+										<option value="name">Name</option>
+										<option value="property">Property</option>
+										<option value="content">Content</option>
+									</select>
+								</div>
+							</div>
+
+							<div class="col-md-12 mb-3">
+								<div class="form-group">
+									<label>Attribute Değer</label>
+									<input type="text" name="attributeValue" class="form-control">
+
+								</div>
+							</div>
+
+							<div class="col-md-12 mb-3">
+								<div class="form-group">
+									<label>İçerik</label>
+									<input type="text" name="content" class="form-control">
+								</div>
+							</div>
+
+							<div class="col-md-12 mb-3">
+								<div class="form-group">
+									<div class="form-check">
+										<input class="form-check-input" type="checkbox" name="isActive" value="true" id="add-is-active" checked>
+										<label class="form-check-label" for="add-is-active">
+											Aktif mi?
+										</label>
+									</div>
+								</div>
+							</div>
+
+							<div class="col-md-12 mb3">
+								<div class="form-group">
+									<label>Dil</label>
+									<select class="form-select" name="languageId">
+									</select>
+								</div>
+							</div>
+						</div>
+					</form>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Kapat</button>
+					<button type="button" class="btn btn-primary" id="add-meta-tag-btn" onclick="$('#add-meta-tag-form').submit()">Ekle</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="modal fade" id="update-meta-tag-modal" data-bs-backdrop="static" data-bs-keyboard="false">
+		<div class="modal-dialog modal-dialog-centered">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title">Meta Tag Güncelle</h5>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body">
+					<form id="update-meta-tag-form">
+						<div class="row">
+
+							<div class="col-md-12 mb-3">
+								<div class="form-group">
+									<label>Sayfa Etiketleri
+										<i class="bi bi-exclamation-circle-fill text-primary ms-1"
+										   data-bs-toggle="tooltip"
+										   data-bs-placement="top"
+										   title="Virgülle ayırarak birden fazla sayfa tanımlayabilirsiniz. Değerler URL'nin son parçasına göre eşleşir. Anasayfa için özel anahtar: anasayfa ya da home">
+										</i>
+									</label>
+									<input type="text" name="pageKeys" class="form-control" placeholder="Örnek: anasayfa, hakkimizda, urunler">
+								</div>
+							</div>
+
+							<div class="col-md-12 mb-3">
+								<div class="form-group">
+									<label>Attribute</label>
+									<select name="attributeName" class="form-select">
+										<option disabled selected>Attribute Seçiniz</option>
+										<option value="name">Name</option>
+										<option value="property">Property</option>
+										<option value="content">Content</option>
+									</select>
+								</div>
+							</div>
+
+							<div class="col-md-12 mb-3">
+								<div class="form-group">
+									<label>Attribute Değer</label>
+									<input type="text" name="attributeValue" class="form-control">
+								</div>
+							</div>
+
+							<div class="col-md-12 mb-3">
+								<div class="form-group">
+									<label>İçerik</label>
+									<input type="text" name="content" class="form-control">
+								</div>
+							</div>
+
+							<div class="col-md-12 mb-3">
+								<div class="form-group">
+									<div class="form-check">
+										<input class="form-check-input" type="checkbox" name="isActive" value="true" id="update-is-active" checked>
+										<label class="form-check-label" for="update-is-active">
+											Aktif mi?
+										</label>
+									</div>
+								</div>
+							</div>
+
+							<div class="col-md-12 mb3">
+								<div class="form-group">
+									<label>Dil</label>
+									<select class="form-select" name="languageId">
+									</select>
+								</div>
+							</div>
+						</div>
+					</form>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Kapat</button>
+					<button type="button" class="btn btn-primary" id="update-meta-tag-btn" onclick="$('#update-meta-tag-form').submit()">Güncelle</button>
+				</div>
+			</div>
+		</div>
+	</div>
+}
+
+@section Scripts {
+
+	<script src="~/js/flag-dropdown.js?v=@DateTime.Now.Ticks"></script>
+	<script src="~/page/panel/metaTag-page.js?v=@DateTime.Now.Ticks"></script>
+}

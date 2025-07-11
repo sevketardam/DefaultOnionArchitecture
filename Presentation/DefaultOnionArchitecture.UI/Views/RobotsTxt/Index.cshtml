@@ -1,0 +1,36 @@
+﻿@{
+	Layout = "_DashboardLayout";
+	ViewData["Title"] = "RobotsTxt";
+	ViewData["Page"] = "RobotsTxt";
+}
+
+@section Css {
+	<style>
+		.card {
+			padding: 2rem;
+		}
+	</style>
+}
+
+@model string
+
+<form id="robots-txt-form">
+	<div class="card">
+		<div class="row">
+			<div class="col-md-12">
+				<textarea class="form-control" rows="20" name="content">@Model</textarea>
+			</div>
+			<div class="col-md-12">
+				<div>
+					<button type="submit" id="robots-txt-btn" class="btn btn-primary mt-3">Kaydet</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</form>
+
+
+
+@section Scripts {
+	<script src="~/page/panel/robotstxt-page.js?v=@DateTime.Now.Ticks"></script>
+}

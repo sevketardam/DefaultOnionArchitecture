@@ -1,0 +1,7 @@
+﻿@using DefaultOnionArchitecture.Domain.Entities
+@model List<MetaTag>
+
+@foreach (var tag in Model)
+{
+    <meta @tag.AttributeName ="@tag.AttributeValue" content="@tag.Content" />
+}

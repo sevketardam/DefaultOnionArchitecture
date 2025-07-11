@@ -1,0 +1,84 @@
+﻿@{
+    Layout = null;
+}
+
+
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Giriş Yap</title>
+    <meta name="description" content="Giris Sayfası" />
+    <meta name="robots" content="noindex, nofollow">
+
+    <link rel="shortcut icon" href="~/assets/images/favicon.ico" />
+    <link rel="stylesheet" href="~/assets/css/core/libs.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.7.3/sweetalert2.min.css" integrity="sha512-NvuRGlPf6cHpxQqBGnPe7fPoACpyrjhlSNeXVUY7BZAj1nNhuNpRBq3osC4yr2vswUEuHq2HtCsY2vfLNCndYA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.7/css/bootstrap.min.css" integrity="sha512-fw7f+TcMjTb7bpbLJZlP8g2Y4XcCyFZW8uy8HsRZsH/SwbMw0plKHFHr99DN3l04VsYNwvzicUX/6qurvIxbxw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+</head>
+<body class="theme-color-yellow" data-bs-spy="scroll" data-bs-target="#elements-section" data-bs-offset="0" tabindex="0">
+    <div id="loading">
+        <div class="loader simple-loader">
+            <div class="loader-body"></div>
+        </div>
+    </div>
+
+    <div class="wrapper">
+        <section class="login-content">
+            <div class="row m-0 align-items-center bg-white vh-100">
+                <div class="col-md-12">
+                    <div class="row justify-content-center">
+                        <div class="col-md-10">
+                            <div class="card card-transparent shadow-none d-flex justify-content-center mb-0 auth-card">
+                                <div class="card-body">
+                                    <form id="login-form">
+                                        <div class="row">
+                                            <div class="col-lg-12">
+                                                <div class="form-group">
+                                                    <label for="email" class="form-label">E-posta</label>
+                                                    <input type="email" name="email" class="form-control" id="email" aria-describedby="e-posta" placeholder=" ">
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-12">
+                                                <div class="form-group">
+                                                    <label for="password" class="form-label">Şifre</label>
+                                                    <input type="password" name="password" class="form-control" id="password" aria-describedby="şifre" placeholder=" ">
+                                                </div>
+                                            </div>
+                                            <div class="col-12">
+                                                <div class="error-box"></div>
+                                            </div>
+
+                                            <div class="col-md-12 mt-3">
+                                                <div class="d-flex justify-content-center">
+                                                    <button type="submit" class="btn btn-primary">Giriş Yap</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                     
+                                        
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                   
+                </div>
+            </div>
+        </section>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.min.js" integrity="sha512-ykZ1QQr0Jy/4ZkvKuqWn4iF3lqPZyij9iRv6sGqLRdTPkY69YX6+7wvVGmsdBbiIfN/8OdsI7HABjvEok6ZopQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.5/jquery.validate.min.js" integrity="sha512-rstIgDs0xPgmG6RX1Aba4KV5cWJbAMcvRCVmglpam9SoHZiUCyQVDdH2LPlxoHtrv17XWblE/V/PP+Tr04hbtA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.5/localization/messages_tr.min.js" integrity="sha512-oKIrTtd9XMLGwhXUmzsH6Bf/OeJKdTuo6e6DPgIj3VV7sxXYT6d5prq9GT/Mk4ZTC4S4CVdI2el8TjEVX82SZw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.js"></script>
+
+    <script src="~/js/form-items.js?v=@DateTime.Now.Ticks"></script>
+    <script src="~/page/panel/login-page.js?v=@DateTime.Now.Ticks"></script>
+
+</body>
+</html>

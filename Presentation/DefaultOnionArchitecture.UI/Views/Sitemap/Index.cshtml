@@ -1,0 +1,43 @@
+﻿@{
+    Layout = "_DashboardLayout";
+    ViewData["Title"] = "Sitemap";
+    ViewData["Page"] = "Sitemap";
+}
+
+@section Css {
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.12/codemirror.min.css" rel="stylesheet" />
+    <style>
+        .card {
+            padding: 2rem;
+        }
+
+        .CodeMirror {
+            height: 400px;
+            border: 1px solid #ddd;
+            font-size: 14px;
+        }
+    </style>
+}
+
+@model string
+
+<form id="sitemap-form">
+    <div class="card">
+        <div class="row">
+            <div class="col-md-12">
+                <textarea id="jsoneditor" name="content">@Model</textarea>
+            </div>
+            <div class="col-md-12">
+                <div>
+                    <button type="submit" class="btn btn-primary mt-3">Kaydet</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+
+@section Scripts {
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.12/codemirror.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.12/mode/javascript/javascript.min.js"></script>
+    <script src="~/page/panel/sitemap-page.js?v=@DateTime.Now.Ticks"></script>
+}

@@ -1,0 +1,111 @@
+﻿.currency-switcher {
+    position: relative;
+    margin: 1rem 0;
+    width: 268px;
+}
+
+div.flag-dropdown {
+    position: relative;
+    width: 268px;
+}
+
+    div.flag-dropdown:after {
+        content: "";
+        position: absolute;
+        margin: 0;
+        width: 16px;
+        height: 17px;
+        background-image: url(http://botkits.ru/img/icons/down.svg);
+        top: 15px;
+        right: 10px;
+        -webkit-transition: .3s;
+        transition: .3s;
+    }
+
+    div.flag-dropdown.open:after {
+        -webkit-transform: rotate(180deg);
+        transform: rotate(180deg);
+    }
+
+
+    div.flag-dropdown > div.caption {
+        background: #ffffff;
+        border-radius: 12px;
+        cursor: pointer;
+        padding: 12.5px 15px 12.5px 60px;
+        font-size: 14px;
+        line-height: 150%;
+        letter-spacing: 0.3px;
+    }
+
+    div.flag-dropdown > div.list {
+        position: absolute;
+        background-color: #fff;
+        width: 100%;
+        border-radius: 12px;
+        -webkit-box-shadow: 0px 12px 24px rgba(21, 18, 51, 0.13);
+        box-shadow: 0px 12px 24px rgba(21, 18, 51, 0.13);
+        opacity: 0;
+        overflow: hidden;
+        -webkit-transition: all 0.15s cubic-bezier(0.25, 0, 0.25, 1.75), opacity 0.1s linear;
+        transition: all 0.15s cubic-bezier(0.25, 0, 0.25, 1.75), opacity 0.1s linear;
+        -webkit-transform: scale(0.85);
+        transform: scale(0.85);
+        -webkit-transform-origin: 50% 0;
+        transform-origin: 50% 0;
+        top: 52px;
+        z-index: -1;
+        visibility: hidden;
+        padding: 10px 0;
+    }
+
+    div.flag-dropdown.open > div.list {
+        -webkit-transform: scale(1);
+        transform: scale(1);
+        opacity: 1;
+        z-index: 1;
+        visibility: visible;
+    }
+
+    div.flag-dropdown > div.list > div.item {
+        padding: 10.5px 15px 10.5px 62px;
+        cursor: pointer;
+        -webkit-transition: .3s;
+        transition: .3s;
+        font-size: 14px;
+        line-height: 150%;
+        letter-spacing: 0.3px;
+    }
+
+        div.flag-dropdown > div.list > div.item.selected {
+            background: rgba(36, 60, 187, 0.2);
+            pointer-events: none;
+        }
+
+        div.flag-dropdown > div.list > div.item:hover {
+            background: #F8F9FB;
+        }
+
+        div.flag-dropdown > div.caption img,
+        div.flag-dropdown > div.list > div.item img,
+        div.flag-dropdown > div.caption svg,
+        div.flag-dropdown > div.list > div.item svg {
+            position: absolute;
+            margin-top: 2.5px;
+            left: 15px;
+            object-fit: scale-down;
+        }
+
+        div.flag-dropdown > div.list > div.item span,
+        div.flag-dropdown > div.caption span {
+            font-weight: 600;
+            font-size: 14px;
+            letter-spacing: 0.3px;
+            color: #243CBB;
+            position: absolute;
+            right: 36px;
+        }
+
+        div.flag-dropdown > div.list > div.item span {
+            right: 20px;
+        }

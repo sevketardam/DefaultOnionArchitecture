@@ -1,0 +1,112 @@
+﻿
+table td{
+    transition:.4s;
+}
+
+.select2-search--dropdown .select2-search__field {
+    outline: none;
+}
+
+.select2-container--default .select2-selection--single {
+    border: var(--bs-border-width) solid var(--bs-border-color) !important;
+}
+
+.select2-container--open .select2-dropdown--below {
+    border: var(--bs-border-width) solid var(--bs-border-color) !important;
+}
+
+.select2-container {
+    display: block !important;
+    width: 100% !important;
+}
+
+    .select2-container .select2-search--inline .select2-search__field {
+        height: 26px;
+    }
+
+.select2-container--default .select2-selection--multiple {
+    border: var(--bs-border-width) solid var(--bs-border-color) !important;
+}
+.dataTables_filter {
+    display: inline-flex;
+    width: 50%;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 10px;
+}
+
+.dataTables_length {
+    display: inline-block;
+    width: 50%;
+}
+
+.paginate_button.disabled {
+    background: #93939312;
+    cursor:default !important;
+}
+
+.paginate_button.current {
+    background: var(--bs-primary);
+    color:white;
+}
+
+.paginate_button.previous {
+    border-bottom-left-radius: 5px;
+    border-top-left-radius: 5px;
+}
+
+.paginate_button.next {
+    border-bottom-right-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+.dataTables_wrapper{
+    position:relative;
+}
+
+.dataTables_paginate {
+    height: 31px;
+}
+
+.paginate_button {
+    padding: .5rem 1rem;
+    border: 1px solid #00000017;
+    cursor: pointer;
+}
+
+div.dataTables_wrapper div.dataTables_paginate {
+    margin-top: 2rem;
+}
+
+.product-table_filter .btn.btn-success {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+}
+
+.loader {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: #00000017;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 !important;
+}
+
+.loader .spinner-border {
+    --bs-spinner-width: 2rem !important;
+    --bs-spinner-height: 2rem !important;
+}
+
+tbody{
+    position:relative;
+}
+
+.button-box .btn {
+    padding: .5rem 1rem;
+}

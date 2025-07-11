@@ -1,0 +1,55 @@
+name: .NET Publish and Deploy with Partial Clean
+
+on:
+  push:
+    branches: [ "master" ]
+
+jobs:
+  build-and-deploy:
+    runs-on: windows-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v4
+
+    - name: Cache NuGet packages
+      uses: actions/cache@v3
+      with:
+        path: |
+          ~/.nuget/packages
+          **/bin
+          **/obj
+        key: ${{ runner.os }}-nuget-${{ hashFiles('**/*.csproj') }}
+        restore-keys: |
+          ${{ runner.os }}-nuget-
+
+    - name: Restore dependencies
+      run: dotnet restore
+
+    - name: Build
+      run: dotnet build --no-restore --configuration Release
+
+    - name: Run tests
+      run: dotnet test --no-build --verbosity normal
+
+    - name: Publish app
+      run: dotnet publish -c Release -o ./publish --no-build --no-restore /p:EnvironmentName=Production
+
+    - name: Deploy everything except wwwroot (clean)
+      uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+      with:
+        server: ${{ secrets.FTP_SERVER }}
+        username: ${{ secrets.FTP_USERNAME }}
+        password: ${{ secrets.FTP_PASSWORD }}
+        local-dir: ./publish/
+        server-dir: ./dermakey.asimo34.com/
+        dangerous-clean-slate: false
+        security: loose
+        protocol: ftp
+
+    - name: Final verification
+      run: |
+        echo "Deploy completed"

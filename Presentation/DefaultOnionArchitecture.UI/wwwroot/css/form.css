@@ -1,0 +1,54 @@
+﻿.selectbox-loader {
+    position: absolute;
+    height: 42px;
+    bottom: 0;
+    width: 100%;
+    left: 0;
+    display: flex;
+    align-items: center;
+    padding: 1.1rem;
+}
+
+.selectbox-box {
+    width: 97%;
+    background: #e9ecef;
+}
+
+.password-input-box {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+    .password-input-box .show-password-btn {
+        position: absolute;
+        right: 10px;
+        top: 7px;
+        background: transparent;
+        cursor: pointer;
+    }
+
+    .password-input-box .generate-password {
+        color: black;
+        cursor: pointer;
+        font-size: .9rem;
+        text-decoration: underline;
+        width: max-content;
+    }
+
+
+    .password-input-box input {
+        padding-right: 2.5rem;
+    }
+
+
+.form-floating > .form-control:focus ~ label::after, .form-floating > .form-control:not(:placeholder-shown) ~ label::after, .form-floating > .form-control-plaintext ~ label::after, .form-floating > .form-select ~ label::after {
+    position: absolute;
+    inset: 1rem .5rem;
+    z-index: -1;
+    height: 1.5em;
+    content: "";
+    background-color: var(--bs-gray-900);
+    -webkit-border-radius: var(--bs-border-radius);
+    border-radius: var(--bs-border-radius);
+}

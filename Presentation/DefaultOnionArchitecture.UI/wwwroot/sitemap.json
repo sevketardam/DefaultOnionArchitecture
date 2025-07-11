@@ -1,0 +1,20 @@
+[
+    {
+        "Loc": "/",
+        "LastMod": "2025-06-15",
+        "ChangeFreq": "daily",
+        "Priority": 1.0
+    },
+    {
+        "Loc": "/hakkimizda",
+        "LastMod": "2025-06-10",
+        "ChangeFreq": "monthly",
+        "Priority": 0.6
+    },
+    {
+        "Loc": "/iletisim",
+        "LastMod": "2025-06-01",
+        "ChangeFreq": "monthly",
+        "Priority": 0.5
+    }
+]

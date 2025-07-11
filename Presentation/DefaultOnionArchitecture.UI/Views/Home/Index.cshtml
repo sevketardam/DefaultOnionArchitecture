@@ -1,0 +1,32 @@
+﻿@using DefaultOnionArchitecture.UI.Model.ViewModels
+@{
+    Layout = "_Layout";
+    ViewData["Title"] = "Anasayfa";
+    ViewData["Description"] = "Anasayfa";
+
+
+    // Open Graph
+    ViewData["OgTitle"] = "";
+    ViewData["OgDescription"] = "";
+    ViewData["OgImage"] = "";
+    ViewData["OgUrl"] = "";
+
+    // Twitter Card
+    ViewData["TwitterCard"] = "";
+    ViewData["TwitterTitle"] = "";
+    ViewData["TwitterDescription"] = "";
+    ViewData["TwitterImage"] = "";
+}
+
+
+<section>
+
+</section>
+
+
+
+
+@section Scripts {
+	<script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <script src="~/page/home/home-page.js?v=@DateTime.Now.Ticks"></script>
+}

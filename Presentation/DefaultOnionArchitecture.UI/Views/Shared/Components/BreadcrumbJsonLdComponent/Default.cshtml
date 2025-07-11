@@ -1,0 +1,10 @@
+﻿@{
+    var json = ViewData["BreadcrumbJson"]?.ToString();
+}
+
+@if (!string.IsNullOrEmpty(json))
+{
+    <script type="application/ld+json">
+        @Html.Raw(json)
+    </script>
+}

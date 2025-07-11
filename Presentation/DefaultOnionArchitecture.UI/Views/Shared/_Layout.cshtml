@@ -1,0 +1,65 @@
+﻿@{
+	var isAuth = (User.Identity?.IsAuthenticated ?? false);
+}
+
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	@if (ViewData["CanonicalUrl"] is string canonicalUrl)
+	{
+		<link rel="canonical" href="@canonicalUrl" />
+	}
+
+	<title>@ViewData["Title"]</title>
+
+	<meta name="description" content="@ViewData["Description"]" />
+	<meta name="robots" content="index, follow">
+
+	@await Component.InvokeAsync("MetaTagComponent")
+
+	<link href="~/css/form.css" rel="stylesheet" />
+	<link href="~/css/style.css?v=@DateTime.Now.Ticks" rel="stylesheet" />
+
+	@await RenderSectionAsync("Css", required: false)
+</head>
+<body>
+
+
+	@* @await Component.InvokeAsync("HeaderComponent") *@
+
+	<main class="main-content">
+		@RenderBody()
+	</main>
+
+
+	@await RenderSectionAsync("Modals", required: false)
+
+	@* @await Component.InvokeAsync("FooterComponent") *@
+
+	@await Component.InvokeAsync("BreadcrumbJsonLdComponent")
+
+
+	<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.5/jquery.validate.min.js" integrity="sha512-rstIgDs0xPgmG6RX1Aba4KV5cWJbAMcvRCVmglpam9SoHZiUCyQVDdH2LPlxoHtrv17XWblE/V/PP+Tr04hbtA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.5/localization/messages_tr.min.js" integrity="sha512-oKIrTtd9XMLGwhXUmzsH6Bf/OeJKdTuo6e6DPgIj3VV7sxXYT6d5prq9GT/Mk4ZTC4S4CVdI2el8TjEVX82SZw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.min.js" integrity="sha512-ykZ1QQr0Jy/4ZkvKuqWn4iF3lqPZyij9iRv6sGqLRdTPkY69YX6+7wvVGmsdBbiIfN/8OdsI7HABjvEok6ZopQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js" integrity="sha512-Eak/29OTpb36LLo2r47IpVzPBLXnAMPAVypbSZiZ4Qkf8p/7S/XRG5xp7OKWPPYfJT6metI+IORkR5G8F900+g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+	<script src="~/js/form-items.js?v=@DateTime.Now.Ticks"></script>
+
+	<script src="~/js/script.js?v=@DateTime.Now.Ticks"></script>
+
+
+	<script>
+		window.isAuthenticated = @(isAuth.ToString().ToLower());
+	</script>
+
+	<script src="~/page/home/layout.js?v=@DateTime.Now.Ticks"></script>
+
+	@await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
